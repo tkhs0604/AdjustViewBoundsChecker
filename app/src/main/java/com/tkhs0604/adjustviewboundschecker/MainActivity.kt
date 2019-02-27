@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        recyclerView.adapter = BannerAdapter()
+        recyclerView.adapter = BannerAdapter(this)
     }
 
 }
