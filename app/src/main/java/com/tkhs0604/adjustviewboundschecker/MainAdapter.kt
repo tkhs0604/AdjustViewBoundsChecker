@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-class BannerAdapter(private val context: Context) : RecyclerView.Adapter<BannerAdapter.ViewHolder>() {
+class MainAdapter(private val context: Context) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.getInstance(LayoutInflater.from(context), parent)
@@ -20,7 +20,7 @@ class BannerAdapter(private val context: Context) : RecyclerView.Adapter<BannerA
 
         companion object {
             fun getInstance(inflater: LayoutInflater, parent: ViewGroup): ViewHolder {
-                return ViewHolder(inflater.inflate(R.layout.item_banner, parent, false))
+                return ViewHolder(inflater.inflate(R.layout.item_main, parent, false))
             }
         }
 
