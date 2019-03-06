@@ -13,8 +13,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        recyclerView1.adapter = MainAdapter(this, ImageType.Small)
-        recyclerView2.adapter = MainAdapter(this, ImageType.Large)
+        recyclerView1.adapter = MainAdapter(this, false)
+        recyclerView2.adapter = MainAdapter(this, true)
 
         recyclerView1.addItemDecoration(MainDecoration())
         recyclerView2.addItemDecoration(MainDecoration())

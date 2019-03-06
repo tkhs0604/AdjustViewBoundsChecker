@@ -5,10 +5,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.tkhs0604.adjustviewboundschecker.ImageType.*
 import kotlinx.android.synthetic.main.item_main.view.*
 
-class MainAdapter(private val context: Context, val imageType: ImageType) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+class MainAdapter(private val context: Context, private val adjustViewBounds: Boolean) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.getInstance(LayoutInflater.from(context), parent)
@@ -16,10 +15,17 @@ class MainAdapter(private val context: Context, val imageType: ImageType) : Recy
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with (holder.itemView) {
-            when (imageType) {
-                Small -> imageView.setImageResource(R.drawable.kotlin_small)
-                Large -> imageView.setImageResource(R.drawable.kotlin_large)
-            }
+            imageView.setImageResource(getDrawableResId(position))
+            imageView.adjustViewBounds = adjustViewBounds
+        }
+    }
+
+    private fun getDrawableResId(position: Int): Int {
+        return when (position) {
+            0    -> R.drawable.kotlin_1
+            1    -> R.drawable.kotlin_2
+            2    -> R.drawable.kotlin_3
+            else -> throw IllegalStateException()
         }
     }
 
@@ -35,9 +41,4 @@ class MainAdapter(private val context: Context, val imageType: ImageType) : Recy
 
     }
 
-}
-
-enum class ImageType {
-    Small,
-    Large,
 }
